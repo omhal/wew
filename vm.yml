@@ -1,0 +1,17 @@
+---
+- name: Clone VM
+  hosts: proxmox
+  tasks:
+  - name: Create VM
+    proxmox_kvm:
+      api_user    : root@pam
+      api_password: Dil4r4ngmasuk
+      api_host    : 192.168.2.128
+      clone       : centos7
+      vmid        : 101
+      newid       : 104
+      name        : wew  # The target VM name
+      node        : pve
+      storage     : Disk2
+      format      : qcow2
+      timeout     : 300  # Note: The task can take a while. Adapt
